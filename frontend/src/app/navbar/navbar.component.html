@@ -1,0 +1,91 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content>
+    <mat-nav-list>
+      <ul>
+        <li>
+          <button mat-fab color="accent" (click)="drawer.toggle()">
+            <mat-icon>location_on</mat-icon>
+          </button>
+        </li>
+        <li>
+          <button mat-fab color="accent" (click)="historyDrawer.toggle()">
+            <mat-icon>folder_special</mat-icon>
+          </button>
+        </li>
+      </ul>
+    </mat-nav-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-drawer-container class="sidedrawer" hasBackdrop="true">
+  <mat-drawer #drawer>
+    <mat-button-toggle-group id="travel-buttons" #group="matButtonToggleGroup">
+      <mat-button-toggle mat-icon-button value="DRIVING">
+        <mat-icon>directions_car</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle mat-icon-button value="TRANSIT">
+        <mat-icon>train</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle mat-icon-button value="WALKING">
+        <mat-icon>directions_walk</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle mat-icon-button value="BICYCLING">
+        <mat-icon>directions_bike</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <form class="input">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Your Location" #startloc>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Destination" #endloc>
+      </mat-form-field>
+    </form>
+
+    <button class="send-button" mat-fab color="primary" (click)="drawer.toggle()" (click)="getLoc(startloc.value, endloc.value, group.value)">
+      <mat-icon>send</mat-icon>
+    </button>
+  </mat-drawer>
+
+  <mat-drawer #historyDrawer position="end">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          From: {{Origin}}
+        </mat-panel-title>
+        <mat-panel-description>
+          To: {{Destination}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Sun Condition: {{sunCond}}, Hi: {{hi}}, Lo{{low}}</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          From: {{origin}}
+        </mat-panel-title>
+        <mat-panel-description>
+          To: {{destination}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Sun Condition: {{sunCond}}, Hi: {{hi}}, Lo{{low}}</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          From: {{Origin}}
+        </mat-panel-title>
+        <mat-panel-description>
+          To: {{Destination}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Sun Condition: {{sunCond}}, Hi: {{hi}}, Lo{{low}}</p>
+    </mat-expansion-panel>
+
+  </mat-drawer>
+  <ng-content></ng-content>
+</mat-drawer-container>

@@ -1,0 +1,32 @@
+mat-nav-list{
+    background: #3f51b5;
+    height: 100%;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li, a{
+    padding: 10px;
+    display: block;
+}
+
+.input{
+    padding: 10px 10px;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.send-button{
+    left: 300px;
+}
+
+#travel-buttons{
+    left: 75px;
+    margin-top: 10px;
+}

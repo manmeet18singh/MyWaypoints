@@ -1,0 +1,14 @@
+app-navbar{
+    display: grid;
+    grid-template-columns: 80px auto;
+    height: 100%;
+}
+agm-map {
+    height: 100%;
+}
+
+.toolbar{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 40px;
+    text-shadow: 1px 2px #00000096
+}

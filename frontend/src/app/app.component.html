@@ -1,0 +1,49 @@
+<mat-toolbar class="toolbar" color="primary">My Waypoints</mat-toolbar>
+<app-navbar (outputLocation)="makeRoute($event)">
+    <agm-map 
+    [latitude]="42.8864" 
+    [longitude]="-78.8784" 
+    [minZoom]="minZoom" 
+    [maxZoom]="maxZoom">
+        <agm-direction 
+        [origin]="origin" 
+        [destination]="destination" 
+        [travelMode]="travelMode"
+        [renderOptions]="renderOptions"
+        (onChange)="onChange($event)"
+        (onResponse)="onResponse($event)">
+        <agm-marker [latitude]="oLat" [longitude]="oLong">
+            <agm-info-window>
+                <strong>Today in {{origin}} the weather is:</strong>
+                <p>{{originSunCond}}</p>
+                <p>Hi: {{originHi}}˚ F</p>
+                <p> Lo: {{originLow}}˚ F</p>
+            </agm-info-window>
+        </agm-marker>
+        <agm-marker [latitude]="dLat" [longitude]="dLng">
+            <agm-info-window>
+                <strong>Today in {{destination}} the weather is:</strong>
+                <p>{{destSunCond}}</p>
+                <p>Hi: {{destHi}}˚ F</p>
+                <p> Lo: {{destLow}}˚ F</p>
+            </agm-info-window>
+        </agm-marker>
+        <agm-marker [latitude]="firstMarkerLat" [longitude]="firstMarkerLng">
+            <agm-info-window>
+                <strong>Today the weather is:</strong>
+                <p>{{m1SunCond}}</p>
+                <p>Hi: {{m1Hi}}˚ F</p>
+                <p> Lo: {{m1Low}}˚ F</p>
+            </agm-info-window>
+        </agm-marker>
+        <agm-marker [latitude]="secondMarkerLat" [longitude]="secondMarkerLng">
+                <agm-info-window>
+                        <strong>Today the weather is:</strong>
+                        <p> {{m2SunCond}}</p>
+                        <p> Hi: {{m2Hi}}˚ F</p>
+                        <p> Lo: {{m2Low}}˚ F</p>
+                    </agm-info-window>
+        </agm-marker>
+    </agm-direction>
+    </agm-map>
+</app-navbar>
